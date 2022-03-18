@@ -1,16 +1,14 @@
-
 let clock = document.getElementById("clock-isip").textContent
-
 // sample output from source:
 // - 25:01:20
 // - 22:10:40
 // - 10:40:23
-// let clock = "01:02:03"
+// clock = "01:02:03"
 
 clock = clock.split(':')
 
 let hour = parseInt(clock[0])
-if (hour > 23) hour -= 24 // handle error hour from clock source (aditiawan)
+if (hour > 23) hour -= 24 // handle error hour from clock source
 
 let minute = parseInt(clock[1])
 let second = parseInt(clock[2])
@@ -33,11 +31,11 @@ setInterval(function () {
     }
 
     // plus "0" if only 1 digit in clock
-
     s = (second < 10) ? '0' + second : second
     m = (minute < 10) ? '0' + minute : minute
     h = (hour < 10) ? '0' + hour : hour
 
-    display_clock = [h, m, s]
-    document.getElementById("clock-display").innerHTML = display_clock.join(":")
+    document.getElementById("second").innerHTML = s
+    document.getElementById("minute").innerHTML = m
+    document.getElementById("hour").innerHTML = h
 }, 1000)
