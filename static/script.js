@@ -1,41 +1,45 @@
 let clock = document.getElementById("clock-isip").textContent
-// sample output from source:
-// - 25:01:20
-// - 22:10:40
-// - 10:40:23
-// clock = "01:02:03"
 
 clock = clock.split(':')
 
-let hour = parseInt(clock[0])
-if (hour > 23) hour -= 24 // handle error hour from clock source
+if (clock != "null") {
+    let hour = parseInt(clock[0])
 
-let minute = parseInt(clock[1])
-let second = parseInt(clock[2])
+    // handle error hour from clock source
+    // if (hour > 23) hour -= 24 
 
-let h, m, s
+    let minute = parseInt(clock[1])
+    let second = parseInt(clock[2])
 
-// load every 1 second
-setInterval(function () {
-    second++
-    if (second >= 60) {
-        second = 0
-        minute++
-        if (minute >= 60) {
-            minute = 0
-            hour++
-            if (hour >= 24) {
-                hour = 0
+    let h, m, s
+
+    // load every 1 second
+    setInterval(function () {
+        second++
+        if (second >= 60) {
+            second = 0
+            minute++
+            if (minute >= 60) {
+                minute = 0
+                hour++
+                if (hour >= 24) {
+                    hour = 0
+                }
             }
         }
-    }
 
-    // plus "0" if only 1 digit in clock
-    s = (second < 10) ? '0' + second : second
-    m = (minute < 10) ? '0' + minute : minute
-    h = (hour < 10) ? '0' + hour : hour
+        // plus "0" if only 1 digit in clock
+        s = (second < 10) ? '0' + second : second
+        m = (minute < 10) ? '0' + minute : minute
+        h = (hour < 10) ? '0' + hour : hour
 
-    document.getElementById("second").innerHTML = s
-    document.getElementById("minute").innerHTML = m
-    document.getElementById("hour").innerHTML = h
-}, 1000)
+        document.getElementById("second").innerHTML = s
+        document.getElementById("minute").innerHTML = m
+        document.getElementById("hour").innerHTML = h
+    }, 1000)
+} else {
+    document.getElementById("clock-container").innerHTML = "Server sedang bermasalah"
+    document.getElementById("second").setAttribute("class", "visually-hidden")
+    document.getElementById("minute").setAttribute("class", "visually-hidden")
+    document.getElementById("hour").setAttribute("class", "visually-hidden")
+}
