@@ -5,9 +5,6 @@ clock = clock.split(':')
 if (clock != "null") {
     let hour = parseInt(clock[0])
 
-    // handle error hour from clock source
-    // if (hour > 23) hour -= 24 
-
     let minute = parseInt(clock[1])
     let second = parseInt(clock[2])
 

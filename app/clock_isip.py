@@ -28,17 +28,12 @@ def get_time_from_server(url):
     try:
         r = requests.get(url)
         return {"status": True, "result": r.headers['Date']}
-    except requests.ConnectionError:
+    except requests.ConnectionError or requests.Timeout or Exception:
         return {"status": False, "result": "Koneksi Bermasalah"}
-    except requests.Timeout:
-        return {"status": False, "result": "Koneksi Timeout"}
-    except Exception:
-        return {"status": False, "result": "Bermasalah"}
 
 
 def main():
     print(get_time_isip())
-    print('Selesai')
 
 
 if __name__ == "__main__":
