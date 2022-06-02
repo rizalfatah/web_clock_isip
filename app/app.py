@@ -10,7 +10,6 @@ app = Flask(__name__)
 @app.route("/")
 def main():
     result = ISIP.get_time_isip()
-
     if result != None:
         result = result['clock']
     else:

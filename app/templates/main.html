@@ -11,48 +11,48 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='images/icons8-clock-16.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <title>Internship Clock | Internet Learning Cafe</title>
-    <style>
-        #clock-display {
-            font-size: 10rem;
-        }
-
-        .wrapper {
-            height: 100vh;
-            background-color: #f3974b;
-            font-family: Aldrich;
-        }
-
-        .clock {
-            padding: 2rem;
-            font-size: 50px;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 
 <body>
     <div id="clock-isip" hidden>{{ clock }}</div>
 
-    <div class="wrapper text-center">
-        <h1 class="pt-5">Jam server Internship</h1>
-
-        <div class="clock-container d-flex justify-content-center mt-5">
-
-            <div id="hour"
-                class="shadow-lg d-inline-block bg-light d-flex align-items-center justify-content-center  clock">
+    <div class="wrapper">
+        <nav class="navbar navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="{{url_for('static', filename='images/logo-ilc.png')}}" alt="" width="100">
+                </a>
             </div>
-            <div id="minute"
-                class="shadow-lg  d-inline-block bg-light d-flex align-items-center justify-content-center mx-3  clock">
+        </nav>
+
+        <div class="content">
+            <h1 class="text-center pt-5">Jam Server Internship Kemkes</h1>
+
+            <div class="clock-container d-flex justify-content-center mt-5">
+
+                <div id="hour"
+                    class="shadow-lg d-inline-block bg-light align-items-center justify-content-center  clock">
+                </div>
+                <div id="minute"
+                    class="shadow-lg  d-inline-block bg-light align-items-center justify-content-center mx-3  clock">
+                </div>
+                <div id="second"
+                    class="shadow-lg  d-inline-block bg-light align-items-center justify-content-center  clock">
+                </div>
             </div>
-            <div id="second"
-                class="shadow-lg  d-inline-block bg-light d-flex align-items-center justify-content-center  clock">
+        </div>
+
+
+        <div class="footer fixed-bottom d-flex justify-content-center align-items-center">
+            <div>
+                &copy 2022 | Internet Iearning Cafe
             </div>
         </div>
     </div>
 
     <script src="{{url_for('static', filename='script.js')}}"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
